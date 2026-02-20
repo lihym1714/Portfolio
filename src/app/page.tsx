@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Locale = "ko" | "en";
+
+const LOCALE_STORAGE_KEY = "portfolio-locale";
 
 type CapabilityItem = {
   title: string;
@@ -532,16 +534,19 @@ export default function HomePage() {
       return "ko";
     }
 
-    const storedLocale = window.localStorage.getItem("portfolio-locale");
+    const storedLocale = window.localStorage.getItem(LOCALE_STORAGE_KEY);
     return storedLocale === "ko" || storedLocale === "en" ? storedLocale : "ko";
   });
 
   const t = content[locale];
 
+  useEffect(() => {
+    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+  }, [locale]);
+
   const toggleLocale = () => {
     const nextLocale: Locale = locale === "ko" ? "en" : "ko";
     setLocale(nextLocale);
-    window.localStorage.setItem("portfolio-locale", nextLocale);
   };
 
   return (
