@@ -296,7 +296,7 @@ const content: Record<Locale, LocaleContent> = {
     },
     contact: {
       label: "문의",
-      title: "컨설팅 이력 관련 문의",
+      title: "컨설팅 이력 관련 및 채용 문의",
       description:
         "수행 이력, 프로젝트 범위, 채용 관련 문의는 이메일로 전달해 주세요. 목적과 일정, 요청 사항을 확인한 후 회신드립니다.",
       email: "sunhooahn@naver.com",
